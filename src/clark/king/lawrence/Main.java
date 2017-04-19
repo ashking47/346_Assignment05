@@ -1,37 +1,27 @@
+package clark.king.lawrence;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.*;
 
-public class Main extends Application{
+public class Main extends Application {
 
-    AnchorPane pane;
-    private Stage primaryStage;
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        this.primaryStage = primaryStage;
-        mainWindow();
-    }
-
-    public void mainWindow(){
-        try{
-            FXMLLoader loader = new FXMLLoader(Main.class.getResource("applicaton.fxml"));
-            pane = loader.load();
-            MainWindowController mwc = loader.getController();
-            mwc.setMain(this);
-            Scene scene = new Scene(pane);
-            primaryStage.setScene(scene);
-            primaryStage.show();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("application.fxml"));
+        primaryStage.setTitle("Cardinal Docs: Classroom Edition");
+        primaryStage.setScene(new Scene(root, 820, 400));
+        primaryStage.show();
     }
 
     public static void main(String[] args){
         launch(args);
+
 
     /*    DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
 
