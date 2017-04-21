@@ -9,18 +9,20 @@ public class SQLManager {
     private int count;
 
     public SQLManager() throws SQLException {
-        DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
+
+        //DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
         String serverName = "csor12c.dhcp.bsu.edu";
         String portNumber = "1521";
         String sid = "or12cdb";
         String url = "jdbc:oracle:thin:@" + serverName + ":" + portNumber + ":" + sid;
         conn = DriverManager.getConnection(url, "aeking2", "7661");
-        stmt = conn.createStatement();
+
         DatabaseMetaData DBMD = conn.getMetaData();
         }
 
     public ResultSet createQuery(String query){
         try{
+            stmt = conn.createStatement();
             rset = stmt.executeQuery(query);
             return rset;
         } catch (SQLException e){

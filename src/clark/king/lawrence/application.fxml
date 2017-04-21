@@ -2,14 +2,16 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clark.king.lawrence.MainWindowController">
+<AnchorPane style="-fx-background-color: #ff9966;" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clark.king.lawrence.MainWindowController">
    <children>
       <GridPane layoutY="-2.0" prefHeight="620.0" prefWidth="991.0">
         <columnConstraints>
@@ -17,16 +19,19 @@
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="651.0" minWidth="10.0" prefWidth="561.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="416.0" minHeight="10.0" prefHeight="395.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="225.0" minHeight="10.0" prefHeight="225.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="525.0" minHeight="10.0" prefHeight="525.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="234.0" minHeight="10.0" prefHeight="95.0" vgrow="SOMETIMES" />
             <RowConstraints />
         </rowConstraints>
          <children>
-            <TextArea fx:id="textArea" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowSpan="2147483647" />
+            <TextArea fx:id="textArea" prefHeight="200.0" prefWidth="300.0" style="-fx-border-color: gray;" GridPane.columnIndex="1" GridPane.rowSpan="2147483647">
+               <font>
+                  <Font name="Times New Roman" size="15.0" />
+               </font></TextArea>
             <GridPane>
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="310.0" minWidth="10.0" prefWidth="196.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="177.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="310.0" minWidth="10.0" prefWidth="198.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="175.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -35,11 +40,17 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField fx:id="searchTextField" onAction="#search" promptText="Search Requirements" GridPane.columnIndex="1" />
-                  <ComboBox fx:id="searchByComboBox" prefWidth="150.0" promptText="Search By" GridPane.halignment="CENTER" />
-                  <Button mnemonicParsing="false" onAction="#calculateAge" prefWidth="187.0" text="Age of Children" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#search" text="Search" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
-                  <Button mnemonicParsing="false" onAction="#timeOfCaseOpened" text="Missing Period" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                  <TextField fx:id="searchTextField" onAction="#search" promptText="Search Requirements" />
+                  <ComboBox fx:id="searchByComboBox" prefWidth="150.0" promptText="Search By" GridPane.halignment="CENTER" GridPane.valignment="TOP" />
+                  <Button mnemonicParsing="false" onAction="#calculateAge" prefWidth="187.0" text="Age of Children" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#search" text="Search" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+                  <Button mnemonicParsing="false" onAction="#timeOfCaseOpened" text="Missing Period" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+                  <Button mnemonicParsing="false" onAction="#activeStates" text="Active Case States" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+                  <Button mnemonicParsing="false" onAction="#activeVSResolvedCases" text="Active vs Resolved Cases" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+                  <Button mnemonicParsing="false" text="Update" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+                  <Button mnemonicParsing="false" onAction="#casePieChart" text="Button" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                  <ComboBox fx:id="missingDatesComboBox" prefWidth="150.0" promptText="Select Range" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                  <Label text="Childen Missing Between:" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                </children>
             </GridPane>
             <GridPane GridPane.rowIndex="1">
