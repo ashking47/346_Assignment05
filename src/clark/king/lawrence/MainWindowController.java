@@ -5,6 +5,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
+
+import javax.swing.*;
 import java.net.URL;
 import java.sql.*;
 import java.util.Arrays;
@@ -45,7 +47,7 @@ public class MainWindowController implements Initializable{
         while (rset.next()) {
             for (int i = 1; i < count; i++) {
                 toTextArea += (rset.getString(i) + " ");
-            }
+            }toTextArea += "\n";
         }
         toTextArea += "\n";
         textArea.setText(toTextArea);
@@ -125,6 +127,13 @@ public class MainWindowController implements Initializable{
     public void calculateAge() throws SQLException {
         establishConnection("select fname, lname, (to_number(to_char(SYSDATE, 'YYYY')) " +
         "- to_number(to_char(BDATE, 'YYYY'))), gender, MCity, MState from child");
+    }
+
+    @FXML
+    public void timeOfCaseOpened() throws SQLException{
+        establishConnection("select cid, lname, fname, (to_number(to_char(SYSDATE, 'YYYY')) " +
+                "- to_number(to_char(BDATE, 'YYYY'))), MCity, MState FROM child order by "+
+        "(to_number(to_char(mdate, 'YYYY')) - to_number(to_char(bdate, 'YYYY'))) ASC");
     }
 
 

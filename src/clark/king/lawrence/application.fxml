@@ -39,6 +39,7 @@
                   <ComboBox fx:id="searchByComboBox" prefWidth="150.0" promptText="Search By" GridPane.halignment="CENTER" />
                   <Button mnemonicParsing="false" onAction="#calculateAge" prefWidth="187.0" text="Age of Children" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                   <Button fx:id="searchButton" mnemonicParsing="false" onAction="#search" text="Search" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+                  <Button mnemonicParsing="false" onAction="#timeOfCaseOpened" text="Missing Period" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                </children>
             </GridPane>
             <GridPane GridPane.rowIndex="1">
