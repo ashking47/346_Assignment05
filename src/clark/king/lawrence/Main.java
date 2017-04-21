@@ -15,6 +15,8 @@ import oracle.jdbc.OracleDriver;
 public class Main extends Application {
     MainWindowController mwc = new MainWindowController();
 
+
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("application.fxml"));
@@ -25,13 +27,5 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
-
     }
-
-
-
-
-
-
-
-}
+ }
